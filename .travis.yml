@@ -8,3 +8,6 @@ script:
   - npm test
   - npm run enforce
   - npm run lint
+before_script:
+  - npm run db:setup:user
+  - npm run db:reset
