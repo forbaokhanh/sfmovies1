@@ -56,4 +56,19 @@ describe('movies integration', () => {
 
   });
 
+  describe('assign location', () => {
+
+    it('assigns a new location to a movie', () => {
+      return Movie.inject({
+        url: '/movies/1/locations',
+        method: 'POST',
+        payload: { location_id: 7 }
+      })
+      .then((response) => {
+        expect(response.statusCode).to.eql(200);
+      });
+    });
+    
+  });
+
 });

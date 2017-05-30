@@ -8,8 +8,8 @@ describe('location model', () => {
 
     it('includes all of the necessary fields', () => {
       const location = Location.forge().serialize();
-
-       expect(location).to.have.all.keys([
+      
+      expect(location).to.have.all.keys([
         'id',
         'name',
         'object'
