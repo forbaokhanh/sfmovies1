@@ -16,7 +16,7 @@ describe('movie validator', () => {
 
     it('is less than 255 characters', () => {
       // create a test payload
-      const payload = {title : 'a'.repeat(256)};
+      const payload = { title : 'a'.repeat(256) };
       const result = Joi.validate(payload, MovieValidator);
 
       expect(result.error.details[0].path).to.eql('title');
