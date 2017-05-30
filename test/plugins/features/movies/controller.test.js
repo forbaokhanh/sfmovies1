@@ -34,7 +34,6 @@ describe('movie controller', () => {
         return Controller.findAll();
       })
       .then((movies) => {
-        console.log(movies);
         expect(movies).to.exist;
         expect(movies).to.have.length(count);
       });

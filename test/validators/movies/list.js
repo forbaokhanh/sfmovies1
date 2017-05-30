@@ -7,7 +7,7 @@ describe('movie list validator', () => {
   describe('title', () => {
 
     it('requires fuzzy', () => {
-      const payload = {title: 'WALL-E'};
+      const payload = { title: 'WALL-E' };
       const result = Joi.validate(payload, MovieListValidator);
 
       expect(result.error.details[0].path).to.eql('value');
@@ -28,12 +28,12 @@ describe('movie list validator', () => {
     it('does not go with start year', () => {
       const payload = {
         title: 'foo',
-        release_year: 1877,
+        release_year: 1977,
         start_year: 2005
       };
       const result = Joi.validate(payload, MovieListValidator);
 
-      expect(result.error.details[0].path).to.eql('release_year');
+      expect(result.error.details[0].path).to.eql('value');
     });
 
     it('does not go with end year', () => {
@@ -44,7 +44,7 @@ describe('movie list validator', () => {
       };
       const result = Joi.validate(payload, MovieListValidator);
 
-      expect(result.error.details[0].path).to.eql('release_year');
+      expect(result.error.details[0].path).to.eql('value');
     });
 
   });
