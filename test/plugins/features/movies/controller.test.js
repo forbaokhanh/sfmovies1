@@ -137,4 +137,26 @@ describe('movie controller', () => {
 
   });
 
+  describe('assignLocation', () => {
+
+    it('adds a location to a movie', () => {
+      const movie_id = 1;
+      const location_id = 6;
+      let beforeCount;
+
+      return new Movie({ id: movie_id }).fetch({
+        withRelated: 'locations'
+      })
+      .then((movie) => {
+        beforeCount = movie.related('locations').length;
+        return Controller.assignLocation(movie_id, location_id);
+      })
+      .then((movie) => {
+        const afterCount = movie.related('locations').length;
+        expect(beforeCount + 1).to.be.eql(afterCount);
+      });
+    });
+
+  });
+
 });
